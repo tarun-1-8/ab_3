@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMIBUCK — Premium Digital Agency | High-Conversion Business</title>
+<meta name="description" content="AMIBUCK is a premium digital agency offering web development, social media management, paid ads, branding, and SEO for Indian businesses and startups.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0c1445;--navy-light:#162060;--navy-dark:#080e30;
+  --gold:#f4a261;--gold-light:#ffe0b2;--gold-dark:#e88c3a;
+  --teal:#264653;--white:#ffffff;--cream:#f7f7f7;
+  --text:#333;--gray:#666;--light-gray:#999;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Source Sans 3',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;line-height:1.7}
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat',sans-serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+.container{width:90%;max-width:1140px;margin:0 auto}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px}
+
+/* PRELOADER */
+#preloader{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:10000;transition:opacity .6s,visibility .6s}
+#preloader.hidden{opacity:0;visibility:hidden}
+.pre-bar{width:160px;height:3px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.pre-bar::after{content:'';display:block;width:40%;height:100%;background:var(--gold);border-radius:2px;animation:preLoad 1.2s ease infinite}
+@keyframes preLoad{0%{transform:translateX(-100%)}100%{transform:translateX(400%)}}
+
+/* TOP BAR */
+.top-bar{background:var(--navy);padding:8px 0;font-size:.8rem;color:rgba(255,255,255,.6)}
+.top-bar-inner{display:flex;justify-content:space-between;align-items:center}
+.top-bar a{color:var(--gold);font-weight:600}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid #eee;transition:box-shadow .3s}
+.navbar.shadow{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:800;color:var(--navy)}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:600;color:var(--text);transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{padding:12px 28px;background:var(--gold);border-radius:6px;font-size:.85rem;font-weight:700;color:var(--white);transition:all .3s;font-family:'Montserrat',sans-serif}
+.nav-cta:hover{background:var(--navy);transform:translateY(-1px);box-shadow:0 4px 16px rgba(12,20,69,.25)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:24px;height:2px;background:var(--navy);transition:.3s}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy-dark));color:var(--white);padding:80px 0;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:0;top:0;width:50%;height:100%;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f4a261' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-text .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(244,162,97,.15);border:1px solid rgba(244,162,97,.3);border-radius:20px;font-size:.75rem;color:var(--gold);font-weight:600;margin-bottom:20px}
+.hero h1{font-size:clamp(2.4rem,4.5vw,3.5rem);font-weight:800;margin-bottom:18px;letter-spacing:-.5px;line-height:1.15}
+.hero h1 .gold{color:var(--gold)}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,.65);max-width:480px;margin-bottom:32px;line-height:1.8}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.btn-gold{padding:14px 36px;background:var(--gold);border:none;border-radius:6px;color:var(--white);font-size:.95rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:'Montserrat',sans-serif}
+.btn-gold:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(244,162,97,.3)}
+.btn-wht{padding:14px 36px;background:transparent;border:2px solid rgba(255,255,255,.3);border-radius:6px;color:var(--white);font-size:.95rem;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Montserrat',sans-serif}
+.btn-wht:hover{border-color:var(--gold);color:var(--gold)}
+.hero-trust{display:flex;align-items:center;gap:16px}
+.trust-avatars{display:flex}
+.trust-avatars span{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--white);margin-left:-10px;border:2px solid var(--navy)}
+.trust-avatars span:first-child{margin-left:0}
+.trust-text{font-size:.85rem;color:rgba(255,255,255,.6)}
+.trust-text strong{color:var(--gold)}
+.hero-visual{position:relative}
+.hero-metrics{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.metric-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:24px;backdrop-filter:blur(10px);transition:all .3s}
+.metric-card:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
+.metric-card .num{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:var(--gold);margin-bottom:4px}
+.metric-card p{font-size:.8rem;color:rgba(255,255,255,.5)}
+.metric-card.featured{grid-column:1/-1;display:flex;align-items:center;gap:20px;background:rgba(244,162,97,.1);border-color:rgba(244,162,97,.2)}
+.metric-card.featured .num{font-size:2.4rem}
+
+/* SOCIAL PROOF BAR */
+.proof-bar{padding:40px 0;border-bottom:1px solid #eee;background:var(--white)}
+.proof-inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.proof-inner .label{font-size:.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--light-gray);font-weight:600}
+.proof-logos{display:flex;gap:36px;align-items:center}
+.proof-logos span{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:#ccc;transition:color .3s}
+.proof-logos span:hover{color:var(--navy)}
+
+/* SECTIONS */
+section{padding:100px 0}
+.sec-header{text-align:center;max-width:640px;margin:0 auto 60px}
+.sec-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--gold);background:var(--gold-light);padding:6px 16px;border-radius:20px;margin-bottom:14px}
+.sec-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--navy);margin-bottom:14px;letter-spacing:-.5px}
+.sec-desc{color:var(--gray);line-height:1.7}
+
+/* SERVICES */
+.services{background:var(--cream)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.svc-card{background:var(--white);border:1px solid #eee;border-radius:12px;padding:32px;transition:all .4s;cursor:pointer;position:relative;overflow:hidden}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(12,20,69,.08);border-color:var(--gold)}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-dark));transform:scaleX(0);transition:transform .4s}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-icon{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:20px}
+.svc-card h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.svc-card p{color:var(--gray);font-size:.88rem;line-height:1.7}
+.svc-card .learn{display:flex;align-items:center;gap:6px;margin-top:16px;font-size:.85rem;font-weight:600;color:var(--gold);transition:gap .3s}
+.svc-card:hover .learn{gap:10px}
+
+/* PORTFOLIO */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.port-card{border-radius:12px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:4/3;border:1px solid #eee;transition:all .4s}
+.port-card:hover{box-shadow:0 16px 40px rgba(12,20,69,.1);transform:translateY(-4px)}
+.port-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;transition:transform .6s}
+.port-card:hover .port-bg{transform:scale(1.05)}
+.port-info{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(12,20,69,.9));transform:translateY(10px);opacity:0;transition:all .4s}
+.port-card:hover .port-info{transform:translateY(0);opacity:1}
+.port-info h3{color:var(--white);font-size:1rem;font-weight:700}
+.port-info p{color:var(--gold);font-size:.75rem;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-top:4px}
+
+/* RESULTS */
+.results{background:var(--navy);color:var(--white);text-align:center}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.result-item .num{font-family:'Montserrat',sans-serif;font-size:3rem;font-weight:800;color:var(--gold)}
+.result-item .num .counter{display:inline}
+.result-item p{font-size:.85rem;color:rgba(255,255,255,.5);margin-top:4px}
+
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-visual{position:relative}
+.about-frame{width:100%;aspect-ratio:4/3;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:4rem;font-weight:800;color:var(--gold);position:relative;overflow:hidden}
+.about-frame::before{content:'';position:absolute;inset:0;border:2px solid rgba(244,162,97,.2);border-radius:12px}
+.about-badge{position:absolute;padding:12px 20px;background:var(--white);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.1);font-size:.85rem;font-weight:700;color:var(--navy)}
+.about-badge.top{top:-12px;right:-12px;display:flex;align-items:center;gap:6px}
+.about-badge.bot{bottom:-12px;left:-12px}
+.about-text h2{font-size:2.2rem;font-weight:800;color:var(--navy);margin-bottom:18px;letter-spacing:-.5px}
+.about-text p{color:var(--gray);line-height:1.8;margin-bottom:14px}
+.about-checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.about-check{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:500}
+.about-check .ico{color:var(--gold)}
+
+/* TESTIMONIALS */
+.testi{background:var(--cream)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.t-card{background:var(--white);border:1px solid #eee;border-radius:12px;padding:28px;transition:all .3s}
+.t-card:hover{box-shadow:0 12px 40px rgba(12,20,69,.06);transform:translateY(-4px)}
+.t-stars{color:var(--gold);font-size:.85rem;margin-bottom:12px;letter-spacing:2px}
+.t-card blockquote{color:var(--gray);font-size:.9rem;line-height:1.8;margin-bottom:18px}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--white);font-size:.8rem}
+.t-info h4{font-size:.9rem;font-weight:700;color:var(--navy)}.t-info p{font-size:.78rem;color:var(--gray)}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--navy),var(--navy-dark));color:var(--white);text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(244,162,97,.1),transparent 70%)}
+.cta h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;margin-bottom:14px;position:relative;z-index:1}
+.cta h2 .gold{color:var(--gold)}
+.cta p{color:rgba(255,255,255,.6);max-width:500px;margin:0 auto 32px;line-height:1.7;position:relative;z-index:1}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact-left h3{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:14px}
+.contact-left>p{color:var(--gray);line-height:1.8;margin-bottom:28px}
+.c-detail{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.c-detail .ico{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.c-detail span{color:var(--gray);font-size:.9rem}
+.c-form{display:flex;flex-direction:column;gap:14px}
+.c-form input,.c-form textarea{width:100%;padding:14px 18px;background:var(--cream);border:1px solid #ddd;border-radius:8px;color:var(--text);font-size:.9rem;font-family:'Source Sans 3',sans-serif;transition:all .3s;outline:none}
+.c-form input:focus,.c-form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(244,162,97,.15)}
+.c-form textarea{min-height:120px;resize:vertical}
+.c-form input::placeholder,.c-form textarea::placeholder{color:var(--light-gray)}
+.btn-submit{padding:14px;background:var(--gold);border:none;border-radius:8px;color:var(--white);font-size:.95rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:'Montserrat',sans-serif;width:100%}
+.btn-submit:hover{background:var(--navy);box-shadow:0 8px 24px rgba(12,20,69,.2)}
+
+/* FOOTER */
+.footer{background:var(--navy-dark);padding:60px 0 24px;color:var(--white)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand p{color:rgba(255,255,255,.4);font-size:.85rem;line-height:1.7;max-width:260px;margin-top:14px}
+.footer h4{font-size:.85rem;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:2px;color:var(--gold)}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer ul a{color:rgba(255,255,255,.4);font-size:.85rem;transition:color .3s}
+.footer ul a:hover{color:var(--gold)}
+.footer-bottom{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.3);font-size:.8rem}
+
+/* REVEALS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}.reveal.vis{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-30px);transition:opacity .7s,transform .7s}.reveal-l.vis{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(30px);transition:opacity .7s,transform .7s}.reveal-r.vis{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:var(--white);padding:24px 5%;gap:16px;border-bottom:1px solid #eee;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+  .hero-grid,.about-layout,.contact-grid{grid-template-columns:1fr}
+  .port-grid{grid-template-columns:repeat(2,1fr)}
+  .results-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .top-bar{display:none}
+}
+@media(max-width:600px){
+  .port-grid,.svc-grid{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .about-checks{grid-template-columns:1fr}
+  .proof-logos{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="preloader"><div class="pre-bar"></div></div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+ <div class="container top-bar-inner">
+  <span>📧 hello@amibuck.com &nbsp;|&nbsp; 📞 +91 98765 43210</span>
+  <span>🚀 <a href="#contact">Free Strategy Call — Book Now</a></span>
+ </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+ <div class="container nav-inner">
+  <a href="#" class="nav-logo">AMI<span>BUCK</span></a>
+  <ul class="nav-links" id="navLinks">
+   <li><a href="#services">Services</a></li>
+   <li><a href="#portfolio">Portfolio</a></li>
+   <li><a href="#results">Results</a></li>
+   <li><a href="#about">About</a></li>
+   <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Free Quote</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+ </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+ <div class="container">
+  <div class="hero-grid">
+   <div class="hero-text">
+    <div class="badge">⚡ #1 Rated Digital Agency in India</div>
+    <h1>Grow Your Business With <span class="gold">Proven Digital Strategy</span></h1>
+    <p>AMIBUCK helps startups, local businesses, and e-commerce brands achieve measurable growth through data-driven marketing, premium web design, and strategic branding.</p>
+    <div class="hero-btns">
+     <button class="btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Free Consultation →</button>
+     <button class="btn-wht" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">See Our Results</button>
+    </div>
+    <div class="hero-trust">
+     <div class="trust-avatars"><span>RK</span><span>PS</span><span>AM</span><span>NP</span></div>
+     <div class="trust-text"><strong>150+</strong> happy clients &nbsp;·&nbsp; ⭐ 4.9/5 rating</div>
+    </div>
+   </div>
+   <div class="hero-visual">
+    <div class="hero-metrics">
+     <div class="metric-card"><div class="num">300%</div><p>Avg. Traffic Increase</p></div>
+     <div class="metric-card"><div class="num">5x</div><p>Avg. Ad ROI</p></div>
+     <div class="metric-card"><div class="num">98%</div><p>Client Satisfaction</p></div>
+     <div class="metric-card"><div class="num">150+</div><p>Projects Delivered</p></div>
+     <div class="metric-card featured"><div><div class="num">₹50Cr+</div><p>Revenue Generated for Clients</p></div></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof-bar">
+ <div class="container proof-inner">
+  <span class="label">Trusted By</span>
+  <div class="proof-logos"><span>TechStart</span><span>StyleCart</span><span>FreshBite</span><span>LuxeHome</span><span>GreenPay</span></div>
+ </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+ <div class="container">
+  <div class="sec-header reveal">
+   <span class="sec-badge">Our Services</span>
+   <h2 class="sec-title">Everything You Need to <span style="color:var(--gold)">Grow Online</span></h2>
+   <p class="sec-desc">Comprehensive digital solutions designed to attract, convert, and retain customers.</p>
+  </div>
+  <div class="svc-grid">
+   <div class="svc-card reveal"><div class="svc-icon">🌐</div><h3>Web Development</h3><p>High-converting websites built for speed, SEO, and user experience that turn visitors into customers.</p><span class="learn">Learn More →</span></div>
+   <div class="svc-card reveal"><div class="svc-icon">📱</div><h3>Social Media Management</h3><p>Strategic content planning, creation, and community management that builds brand authority.</p><span class="learn">Learn More →</span></div>
+   <div class="svc-card reveal"><div class="svc-icon">🎯</div><h3>Paid Ads (Meta + Google)</h3><p>ROI-focused campaigns with precise targeting, A/B testing, and continuous optimization.</p><span class="learn">Learn More →</span></div>
+   <div class="svc-card reveal"><div class="svc-icon">✨</div><h3>Branding & Identity</h3><p>Complete brand systems that create trust, recognition, and emotional connection with your audience.</p><span class="learn">Learn More →</span></div>
+   <div class="svc-card reveal"><div class="svc-icon">🔍</div><h3>SEO Optimization</h3><p>Comprehensive technical, on-page, and content SEO strategies that drive organic traffic and leads.</p><span class="learn">Learn More →</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+ <div class="container">
+  <div class="sec-header reveal">
+   <span class="sec-badge">Our Work</span>
+   <h2 class="sec-title">Projects That <span style="color:var(--gold)">Deliver Results</span></h2>
+   <p class="sec-desc">Real results for real businesses. See how we've helped brands grow.</p>
+  </div>
+  <div class="port-grid">
+   <div class="port-card reveal"><div class="port-bg" style="background:linear-gradient(135deg,#f0f4ff,#e8ecf5)">🛒</div><div class="port-info"><h3>E-Commerce Platform</h3><p>+280% Revenue</p></div></div>
+   <div class="port-card reveal"><div class="port-bg" style="background:linear-gradient(135deg,#fff5eb,#ffe8d4)">📊</div><div class="port-info"><h3>SaaS Dashboard</h3><p>50K+ Users</p></div></div>
+   <div class="port-card reveal"><div class="port-bg" style="background:linear-gradient(135deg,#f0f9f4,#e0f2e9)">🎨</div><div class="port-info"><h3>Brand Identity</h3><p>Complete Rebrand</p></div></div>
+   <div class="port-card reveal"><div class="port-bg" style="background:linear-gradient(135deg,#f5f0ff,#ede4ff)">📈</div><div class="port-info"><h3>SEO Campaign</h3><p>+500% Traffic</p></div></div>
+   <div class="port-card reveal"><div class="port-bg" style="background:linear-gradient(135deg,#fff0f0,#ffe4e4)">🏪</div><div class="port-info"><h3>Food Delivery</h3><p>10K+ Downloads</p></div></div>
+   <div class="port-card reveal"><div class="port-bg" style="background:linear-gradient(135deg,#f0f8ff,#e0f0ff)">🎬</div><div class="port-info"><h3>Social Campaign</h3><p>5M+ Reach</p></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+ <div class="container">
+  <div class="sec-header reveal" style="color:var(--white)">
+   <span class="sec-badge">Results</span>
+   <h2 class="sec-title" style="color:var(--white)">Numbers That <span style="color:var(--gold)">Speak</span></h2>
+  </div>
+  <div class="results-grid">
+   <div class="result-item reveal"><div class="num"><span class="counter" data-target="150">0</span>+</div><p>Projects Completed</p></div>
+   <div class="result-item reveal"><div class="num"><span class="counter" data-target="98">0</span>%</div><p>Client Satisfaction</p></div>
+   <div class="result-item reveal"><div class="num"><span class="counter" data-target="300">0</span>%</div><p>Avg. Traffic Growth</p></div>
+   <div class="result-item reveal"><div class="num"><span class="counter" data-target="50">0</span>Cr+</div><p>Revenue Generated</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+ <div class="container">
+  <div class="about-layout">
+   <div class="about-visual reveal-l">
+    <div class="about-frame">AB</div>
+    <div class="about-badge top">🏆 Award-Winning Agency</div>
+    <div class="about-badge bot">📈 150+ Happy Clients</div>
+   </div>
+   <div class="about-text reveal-r">
+    <span class="sec-badge">About AMIBUCK</span>
+    <h2>Your Growth Partner in the <span style="color:var(--gold)">Digital World</span></h2>
+    <p>AMIBUCK is a results-driven digital agency based in India. We help businesses at every stage — from ambitious startups to established e-commerce brands — achieve sustainable, measurable growth.</p>
+    <p>Our team combines creative expertise with data-driven strategy to deliver solutions that don't just look great but perform exceptionally.</p>
+    <div class="about-checks">
+     <div class="about-check"><span class="ico">✓</span> Data-Driven Decisions</div>
+     <div class="about-check"><span class="ico">✓</span> Conversion-Focused</div>
+     <div class="about-check"><span class="ico">✓</span> Transparent Reporting</div>
+     <div class="about-check"><span class="ico">✓</span> 24/7 Support</div>
+     <div class="about-check"><span class="ico">✓</span> Industry Expertise</div>
+     <div class="about-check"><span class="ico">✓</span> Affordable Packages</div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testimonials">
+ <div class="container">
+  <div class="sec-header reveal">
+   <span class="sec-badge">Testimonials</span>
+   <h2 class="sec-title">What Our <span style="color:var(--gold)">Clients Say</span></h2>
+  </div>
+  <div class="testi-grid">
+   <div class="t-card reveal"><div class="t-stars">★★★★★</div><blockquote>"AMIBUCK increased our website traffic by 300% and our sales by 180%. The ROI has been incredible. Best investment we've made."</blockquote><div class="t-author"><div class="t-avatar">RK</div><div class="t-info"><h4>Rajesh Kumar</h4><p>CEO, TechStart India</p></div></div></div>
+   <div class="t-card reveal"><div class="t-stars">★★★★★</div><blockquote>"Their paid ads strategy generated 5x returns in just 60 days. They truly understand conversion optimization and ROI."</blockquote><div class="t-author"><div class="t-avatar">PS</div><div class="t-info"><h4>Priya Sharma</h4><p>Founder, StyleCart</p></div></div></div>
+   <div class="t-card reveal"><div class="t-stars">★★★★★</div><blockquote>"From SEO to social media, AMIBUCK handles everything with excellence. Our organic traffic grew 400% in 6 months."</blockquote><div class="t-author"><div class="t-avatar">AM</div><div class="t-info"><h4>Aditya Mehta</h4><p>Director, FreshBite Foods</p></div></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+ <div class="container reveal">
+  <h2>Ready to <span class="gold">10x Your Growth</span>?</h2>
+  <p>Book a free strategy call today and discover exactly how AMIBUCK can transform your business.</p>
+  <button class="btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="position:relative;z-index:1">Book Free Strategy Call →</button>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+ <div class="container">
+  <div class="sec-header reveal">
+   <span class="sec-badge">Contact Us</span>
+   <h2 class="sec-title">Get Your <span style="color:var(--gold)">Free Quote</span></h2>
+   <p class="sec-desc">Fill out the form and receive a customized growth strategy within 24 hours.</p>
+  </div>
+  <div class="contact-grid">
+   <div class="contact-left reveal-l">
+    <h3>Let's talk growth</h3>
+    <p>Whether you need a new website, want to grow your social media, or need help with ads and SEO — we're here to help. No commitments, just clarity.</p>
+    <div class="c-detail"><div class="ico">📧</div><span>hello@amibuck.com</span></div>
+    <div class="c-detail"><div class="ico">📞</div><span>+91 98765 43210</span></div>
+    <div class="c-detail"><div class="ico">📍</div><span>India</span></div>
+   </div>
+   <form class="c-form reveal-r" onsubmit="event.preventDefault();alert('Thank you! We\'ll send your free quote within 24 hours.')">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Business Email" required>
+    <input type="text" placeholder="Company / Brand Name">
+    <textarea placeholder="Tell us about your goals and budget range..."></textarea>
+    <button type="submit" class="btn-submit">Get Free Quote →</button>
+   </form>
+  </div>
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="container">
+  <div class="footer-grid">
+   <div class="footer-brand"><a href="#" class="nav-logo" style="color:var(--white)">AMI<span style="color:var(--gold)">BUCK</span></a><p>Results-driven digital agency helping Indian businesses grow with proven strategies and premium solutions.</p></div>
+   <div><h4>Services</h4><ul><li><a href="#">Web Development</a></li><li><a href="#">Social Media</a></li><li><a href="#">Paid Ads</a></li><li><a href="#">Branding</a></li><li><a href="#">SEO</a></li></ul></div>
+   <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Portfolio</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li></ul></div>
+   <div><h4>Support</h4><ul><li><a href="#">Contact</a></li><li><a href="#">FAQ</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">© 2026 AMIBUCK. All rights reserved. Made with ❤️ in India.</div>
+ </div>
+</footer>
+
+<script>
+window.addEventListener('load',()=>document.getElementById('preloader').classList.add('hidden'));
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('shadow',window.scrollY>10));
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+
+// Scroll Reveal
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+
+// Animated counters
+function animateCounters(){document.querySelectorAll('.counter').forEach(el=>{const target=parseInt(el.dataset.target);let c=0;const step=Math.max(1,Math.floor(target/60));const timer=setInterval(()=>{c+=step;if(c>=target){c=target;clearInterval(timer)}el.textContent=c},25)})}
+const resultsEl=document.querySelector('.results-grid');
+if(resultsEl){const cObs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){animateCounters();cObs.unobserve(e.target)}})},{threshold:.5});cObs.observe(resultsEl)}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+</script>
+</body>
+</html>
